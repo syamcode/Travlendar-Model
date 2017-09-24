@@ -19,10 +19,21 @@ public class TravelingTime {
         travelingTimeItems.add(_travelingTimeItem);
     }
     
-    public List<TransportationMode> findTransportationMode(Location embarkation, Location destination) {
+    public void printAllItem() {
+        int i = 0;
+        for(TravelingTimeItem item : travelingTimeItems) {
+            System.out.println("Item " + ++i + ": ");
+            System.out.println("Embarkation: " + item.getEmbarkation().getLocationName());
+            System.out.println("Destination: " + item.getDestination().getLocationName());
+            System.out.println("Transportation Mode: " + item.getTransportationMode().getTransportationName());
+            System.out.println("Traveling Time: " + item.getTravelTime());
+        }
+    }
+        
+    public List<TransportationMode> findTransportationMode(Location embarkation, Location destination, float travelTime) {
         List<TransportationMode> transportationMode = new ArrayList<TransportationMode>();
         for(TravelingTimeItem item : travelingTimeItems) {
-            if(item.getEmbarkation() == embarkation && item.getDestination() == destination) {
+            if(item.getEmbarkation() == embarkation && item.getDestination() == destination && item.getTravelTime()<=travelTime) {
                 transportationMode.add(item.getTransportationMode());
             }
         }

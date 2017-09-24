@@ -17,7 +17,6 @@ public class ItineraryItem {
     private String itineraryItemName;
     private Date endTime = new Date();
     private Date startTime = new Date();
-    private Location embarkation;
     private Location destination;
     private List<TransportationMode> transportationModeSuggestions = new ArrayList<TransportationMode>();
     
@@ -47,14 +46,6 @@ public class ItineraryItem {
     public void setStartTime(Date _startTime) {
         startTime = _startTime;
     }
-    
-    public Location getEmbarkation() {
-        return embarkation;
-    }
-    
-    public void setEmbarkation(Location _embarkation){
-        embarkation = _embarkation;
-    } 
     
     public Location getDestination() {
         return destination;

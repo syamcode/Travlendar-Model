@@ -14,30 +14,50 @@ import java.util.ListIterator;
  * @author syamcode
  */
 public class Itinerary {
+    private Location home;
     private List<ItineraryItem> itineraryItems= new ArrayList<ItineraryItem>();
     
     public void addItineraryItem(ItineraryItem item) {
         itineraryItems.add(item);
     }
     
+    public Location getHome() {
+        return home;
+    }
+    
+    public void setHome(Location _home) {
+        home = _home;
+    }
     public void printAllItem() {
         int i = 0;
         for(ItineraryItem item : itineraryItems) {
             System.out.println("Item " + ++i + ": ");
             System.out.println("Itinerary Name: " + item.getItineraryItemName());
-            System.out.println("Embarkation: " + item.getEmbarkation().getLocationName());
             System.out.println("Destination: " + item.getDestination().getLocationName());
             System.out.println("Start Time: " + item.getStartTime());
             System.out.println("End Time: " + item.getEndTime());
+            System.out.println("Transportation Suggestion:");
+            int j = 1;
+            for(TransportationMode mode: item.getTransportationModeSuggestions()) {
+                System.out.println(j + ". " + mode.getTransportationName());
+                j++;
+            }
         }
     }
     
     public void suggestTransportationModes(TravelingTime travelingTime) {
-        ListIterator<ItineraryItem> itr = itineraryItems.listIterator(itineraryItems.size());
-        while(itr.hasPrevious()) {
-            ItineraryItem item = itr.previous();
-            item.setTransportationModes(travelingTime.findTransportationMode(item.getEmbarkation(), item.getDestination()));
-            
+        int i = 0;
+        ItineraryItem item2 = new ItineraryItem("");
+        for(ItineraryItem item : itineraryItems) {
+            if(i==0) {
+                item.setTransportationModes(travelingTime.findTransportationMode(home, item.getDestination(), Float.MAX_VALUE));
+            }
+            else {
+                item.setTransportationModes(travelingTime.findTransportationMode(item2.getDestination(), item.getDestination(), (item.getStartTime().getTime() - item2.getEndTime().getTime())/(60000)));
+                //System.out.println(item.getStartTime() + "-" + item2.getEndTime() + ":" + (item.getStartTime().getTime() - item2.getEndTime().getTime())/(6000));
+            }
+            item2 = item;
+            i++;
         }
     }
 }
