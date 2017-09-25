@@ -6,6 +6,8 @@
 package travlendar;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -37,9 +39,9 @@ public class Itinerary {
             System.out.println("Start Time: " + item.getStartTime());
             System.out.println("End Time: " + item.getEndTime());
             System.out.println("Transportation Suggestion:");
-            int j = 1;
-            for(TransportationMode mode: item.getTransportationModeSuggestions()) {
-                System.out.println(j + ". " + mode.getTransportationName());
+            int j = 0;
+            for(HashMap<TransportationMode, Date> mode: item.getTransportationModeSuggestions()) {
+                System.out.println((j+1) + ". " + mode.get(0) + " Berangkat : " + mode.get(mode.get(0)));
                 j++;
             }
         }
@@ -50,10 +52,10 @@ public class Itinerary {
         ItineraryItem item2 = new ItineraryItem("");
         for(ItineraryItem item : itineraryItems) {
             if(i==0) {
-                item.setTransportationModes(travelingTime.findTransportationMode(home, item.getDestination(), Float.MAX_VALUE));
+                item.setTransportationModes(travelingTime.findTransportationMode(home, item.getDestination(), 99, item.getStartTime()));
             }
             else {
-                item.setTransportationModes(travelingTime.findTransportationMode(item2.getDestination(), item.getDestination(), (item.getStartTime().getTime() - item2.getEndTime().getTime())/(60000)));
+                item.setTransportationModes(travelingTime.findTransportationMode(item2.getDestination(), item.getDestination(), (item.getStartTime().getTime() - item2.getEndTime().getTime())/(60000), item.getStartTime()));
                 //System.out.println(item.getStartTime() + "-" + item2.getEndTime() + ":" + (item.getStartTime().getTime() - item2.getEndTime().getTime())/(6000));
             }
             item2 = item;

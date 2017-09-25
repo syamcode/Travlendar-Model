@@ -7,6 +7,7 @@ package travlendar;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class ItineraryItem {
     private Date endTime = new Date();
     private Date startTime = new Date();
     private Location destination;
-    private List<TransportationMode> transportationModeSuggestions = new ArrayList<TransportationMode>();
+    private List<HashMap<TransportationMode, Date>> transportationModeSuggestions = new ArrayList<HashMap<TransportationMode, Date>>();
     
     public ItineraryItem(String _itineraryItemName) {
         itineraryItemName = _itineraryItemName;
@@ -55,11 +56,11 @@ public class ItineraryItem {
         destination = _destination;
     }
     
-    public List<TransportationMode> getTransportationModeSuggestions() {
+    public List<HashMap<TransportationMode, Date>> getTransportationModeSuggestions() {
         return transportationModeSuggestions;
     }
     
-    public void setTransportationModes(List<TransportationMode> _transportationModeSuggestions) {
+    public void setTransportationModes(List<HashMap<TransportationMode, Date>> _transportationModeSuggestions) {
         transportationModeSuggestions = _transportationModeSuggestions;
     }
 }

@@ -13,7 +13,7 @@ public class TravelingTimeItem {
     private Location embarkation;
     private Location destination;
     private TransportationMode transportationMode;
-    private float travelTime;
+    private long travelTime;
     
     public Location getEmbarkation() {
         return embarkation;
@@ -38,11 +38,11 @@ public class TravelingTimeItem {
     public void setTransportationMode(TransportationMode _transportationMode) {
         transportationMode = _transportationMode;
     }
-    public float getTravelTime() {
+    public long getTravelTime() {
         return travelTime;
     }
     
-    public void setTravelTime(int _travelTime) {
+    public void setTravelTime(long _travelTime) {
         travelTime = _travelTime;
     }
 }
