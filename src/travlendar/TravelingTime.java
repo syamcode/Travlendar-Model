@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import javafx.util.Pair;
 
 /**
  *
@@ -32,14 +33,12 @@ public class TravelingTime {
         }
     }
         
-    public List<HashMap<TransportationMode, Date>> findTransportationMode(Location embarkation, Location destination, long travelTime, Date departure) {
-        List<HashMap<TransportationMode, Date>> transportationMode = new ArrayList<HashMap<TransportationMode, Date>>();
+    public List<Pair<TransportationMode, Date>> findTransportationMode(Location embarkation, Location destination, long travelTime, Date departure) {
+        List<Pair<TransportationMode, Date>> transportationMode = new ArrayList<Pair<TransportationMode, Date>>();
         for(TravelingTimeItem item : travelingTimeItems) {
             if(item.getEmbarkation() == embarkation && item.getDestination() == destination && item.getTravelTime()<=travelTime) {
-                HashMap<TransportationMode, Date> temp = new HashMap<TransportationMode, Date>();
-                Date tDate = new Date(departure.getTime() - item.getTravelTime());
-                temp.put(item.getTransportationMode(), tDate);
-                transportationMode.add(temp);
+                Date tDate = new Date(departure.getTime() - (item.getTravelTime()*60000));
+                transportationMode.add(new Pair<TransportationMode, Date>(item.getTransportationMode(), tDate));
             }
         }
         return transportationMode;

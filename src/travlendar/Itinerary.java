@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
+import javafx.util.Pair;
 
 /**
  *
@@ -40,8 +41,8 @@ public class Itinerary {
             System.out.println("End Time: " + item.getEndTime());
             System.out.println("Transportation Suggestion:");
             int j = 0;
-            for(HashMap<TransportationMode, Date> mode: item.getTransportationModeSuggestions()) {
-                System.out.println((j+1) + ". " + mode.get(0) + " Berangkat : " + mode.get(mode.get(0)));
+            for(Pair<TransportationMode, Date> mode: item.getTransportationModeSuggestions()) {
+                System.out.println((j+1) + ". " + mode.getKey().getTransportationName() + ", Berangkat : " + mode.getValue());
                 j++;
             }
         }

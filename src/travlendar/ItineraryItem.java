@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import javafx.util.Pair;
 
 /**
  *
@@ -19,7 +20,7 @@ public class ItineraryItem {
     private Date endTime = new Date();
     private Date startTime = new Date();
     private Location destination;
-    private List<HashMap<TransportationMode, Date>> transportationModeSuggestions = new ArrayList<HashMap<TransportationMode, Date>>();
+    private List<Pair<TransportationMode, Date>> transportationModeSuggestions = new ArrayList<Pair<TransportationMode, Date>>();
     
     public ItineraryItem(String _itineraryItemName) {
         itineraryItemName = _itineraryItemName;
@@ -56,11 +57,11 @@ public class ItineraryItem {
         destination = _destination;
     }
     
-    public List<HashMap<TransportationMode, Date>> getTransportationModeSuggestions() {
+    public List<Pair<TransportationMode, Date>> getTransportationModeSuggestions() {
         return transportationModeSuggestions;
     }
     
-    public void setTransportationModes(List<HashMap<TransportationMode, Date>> _transportationModeSuggestions) {
+    public void setTransportationModes(List<Pair<TransportationMode, Date>> _transportationModeSuggestions) {
         transportationModeSuggestions = _transportationModeSuggestions;
     }
 }

@@ -81,8 +81,8 @@ public class Travlendar {
         TravelingTimeItem travelingTimeItem4 = new TravelingTimeItem();
         travelingTimeItem4.setEmbarkation(destination1); //Polban
         travelingTimeItem4.setDestination(destination2); //Sarijadi
-        travelingTimeItem4.setTransportationMode(jalanKaki);
-        travelingTimeItem4.setTravelTime(30);
+        travelingTimeItem4.setTransportationMode(sepeda);
+        travelingTimeItem4.setTravelTime(31);
         
         travelingTime.addTravelingTimes(travelingTimeItem4);
         
