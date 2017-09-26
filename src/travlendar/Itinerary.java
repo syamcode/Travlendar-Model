@@ -41,7 +41,7 @@ public class Itinerary {
             System.out.println("End Time: " + item.getEndTime());
             System.out.println("Transportation Suggestion:");
             int j = 0;
-            for(Pair<TransportationMode, Date> mode: item.getTransportationModeSuggestions()) {
+            for(Pair<TransportationMode, Date> mode: item.getSuggestions()) {
                 System.out.println((j+1) + ". " + mode.getKey().getTransportationName() + ", Berangkat : " + mode.getValue());
                 j++;
             }

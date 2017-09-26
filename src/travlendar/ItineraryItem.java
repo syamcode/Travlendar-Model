@@ -20,7 +20,7 @@ public class ItineraryItem {
     private Date endTime = new Date();
     private Date startTime = new Date();
     private Location destination;
-    private List<Pair<TransportationMode, Date>> transportationModeSuggestions = new ArrayList<Pair<TransportationMode, Date>>();
+    private List<Pair<TransportationMode, Date>> suggestions = new ArrayList<Pair<TransportationMode, Date>>();
     
     public ItineraryItem(String _itineraryItemName) {
         itineraryItemName = _itineraryItemName;
@@ -57,11 +57,11 @@ public class ItineraryItem {
         destination = _destination;
     }
     
-    public List<Pair<TransportationMode, Date>> getTransportationModeSuggestions() {
-        return transportationModeSuggestions;
+    public List<Pair<TransportationMode, Date>> getSuggestions() {
+        return suggestions;
     }
     
     public void setTransportationModes(List<Pair<TransportationMode, Date>> _transportationModeSuggestions) {
-        transportationModeSuggestions = _transportationModeSuggestions;
+        suggestions = _transportationModeSuggestions;
     }
 }
