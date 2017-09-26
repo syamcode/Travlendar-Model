@@ -39,10 +39,10 @@ public class Itinerary {
             System.out.println("Destination: " + item.getDestination().getLocationName());
             System.out.println("Start Time: " + item.getStartTime());
             System.out.println("End Time: " + item.getEndTime());
-            System.out.println("Transportation Suggestion:");
+            System.out.println("Suggestions:");
             int j = 0;
-            for(Pair<TransportationMode, Date> mode: item.getSuggestions()) {
-                System.out.println((j+1) + ". " + mode.getKey().getTransportationName() + ", Berangkat : " + mode.getValue());
+            for(Suggestion mode: item.getSuggestions()) {
+                System.out.println((j+1) + ". Kendaraan: " + mode.getTransportationModeSuggestion().getTransportationName() + ", Berangkat: " + mode.getDepartureSuggestion());
                 j++;
             }
         }

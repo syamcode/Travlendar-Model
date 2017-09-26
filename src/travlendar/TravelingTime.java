@@ -33,14 +33,17 @@ public class TravelingTime {
         }
     }
         
-    public List<Pair<TransportationMode, Date>> findTransportationMode(Location embarkation, Location destination, long travelTime, Date departure) {
-        List<Pair<TransportationMode, Date>> transportationMode = new ArrayList<Pair<TransportationMode, Date>>();
+    public List<Suggestion> findTransportationMode(Location embarkation, Location destination, long travelTime, Date departure) {
+        List<Suggestion> suggestions = new ArrayList<Suggestion>();
         for(TravelingTimeItem item : travelingTimeItems) {
             if(item.getEmbarkation() == embarkation && item.getDestination() == destination && item.getTravelTime()<=travelTime) {
                 Date tDate = new Date(departure.getTime() - (item.getTravelTime()*60000));
-                transportationMode.add(new Pair<TransportationMode, Date>(item.getTransportationMode(), tDate));
+                Suggestion suggestion = new Suggestion();
+                suggestion.setTransportationModeSuggestion(item.getTransportationMode());
+                suggestion.setDepartureSuggestion(tDate);
+                suggestions.add(suggestion);
             }
         }
-        return transportationMode;
+        return suggestions;
     }
 }
