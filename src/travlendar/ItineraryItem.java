@@ -15,14 +15,14 @@ import javafx.util.Pair;
  *
  * @author syamcode
  */
-public class ItineraryItem {
+public class Event {
     private String itineraryItemName;
     private Date endTime = new Date();
     private Date startTime = new Date();
     private Location destination;
     private List<Suggestion> suggestions = new ArrayList<Suggestion>();
     
-    public ItineraryItem(String _itineraryItemName) {
+    public Event(String _itineraryItemName) {
         itineraryItemName = _itineraryItemName;
     } 
     public String getItineraryItemName() {
@@ -61,7 +61,7 @@ public class ItineraryItem {
         return suggestions;
     }
     
-    public void setTransportationModes(List<Suggestion> _suggestions) {
+    public void setSuggestions(List<Suggestion> _suggestions) {
         suggestions = _suggestions;
     }
 }

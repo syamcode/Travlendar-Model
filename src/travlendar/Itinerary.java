@@ -53,10 +53,10 @@ public class Itinerary {
         ItineraryItem item2 = new ItineraryItem("");
         for(ItineraryItem item : itineraryItems) {
             if(i==0) {
-                item.setTransportationModes(travelingTime.findTransportationMode(home, item.getDestination(), Long.MAX_VALUE, item.getStartTime()));
+                item.setSuggestions(travelingTime.findTransportationMode(home, item.getDestination(), Long.MAX_VALUE, item.getStartTime()));
             }
             else {
-                item.setTransportationModes(travelingTime.findTransportationMode(item2.getDestination(), item.getDestination(), (item.getStartTime().getTime() - item2.getEndTime().getTime())/(60000), item.getStartTime()));
+                item.setSuggestions(travelingTime.findTransportationMode(item2.getDestination(), item.getDestination(), (item.getStartTime().getTime() - item2.getEndTime().getTime())/(60000), item.getStartTime()));
                 //System.out.println(item.getStartTime() + "-" + item2.getEndTime() + ":" + (item.getStartTime().getTime() - item2.getEndTime().getTime())/(6000));
             }
             item2 = item;

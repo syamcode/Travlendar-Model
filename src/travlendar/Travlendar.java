@@ -114,6 +114,7 @@ public class Travlendar {
         //travelingTime.printAllItem();
         // TODO code application logic here
         
+        travelingTime.printAllItem();
         Hisyam.printTravelerItinerary();
     }
     
