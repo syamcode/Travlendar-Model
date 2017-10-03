@@ -5,6 +5,7 @@
  */
 package travlendar;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -33,16 +34,23 @@ public class Itinerary {
     }
     public void printAllItem() {
         int i = 0;
+        SimpleDateFormat sdfd = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat sdft = new SimpleDateFormat("hh:mm");
+        String tempDate1 = "";
         for(ItineraryItem item : itineraryItems) {
+            if(!tempDate1.equals(sdfd.format(item.getStartTime()))) {
+                System.out.println("\nTanggal: " + sdfd.format(item.getStartTime()) + "\n");
+                tempDate1 = sdfd.format(item.getStartTime());
+            }
             System.out.println("Item " + ++i + ": ");
             System.out.println("Itinerary Name: " + item.getItineraryItemName());
             System.out.println("Destination: " + item.getDestination().getLocationName());
-            System.out.println("Start Time: " + item.getStartTime());
-            System.out.println("End Time: " + item.getEndTime());
+            System.out.println("Start Time: " + sdft.format(item.getStartTime()));
+            System.out.println("End Time: " + sdft.format(item.getEndTime()));
             System.out.println("Suggestions:");
             int j = 0;
             for(Suggestion mode: item.getSuggestions()) {
-                System.out.println((j+1) + ". Kendaraan: " + mode.getTransportationModeSuggestion().getTransportationName() + ", Berangkat: " + mode.getDepartureSuggestion());
+                System.out.println((j+1) + ". Kendaraan: " + mode.getTransportationModeSuggestion().getTransportationName() + ", Berangkat: " + sdft.format(mode.getDepartureSuggestion()));
                 j++;
             }
         }

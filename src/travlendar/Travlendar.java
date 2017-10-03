@@ -42,6 +42,16 @@ public class Travlendar {
         item2.setStartTime(startTime2);
         itinerary.addItineraryItem(item2);
         
+        ItineraryItem item3 = new ItineraryItem("Tidur");
+        Location destination3 = new Location("Sarijadi");
+        Date startTime3 = dateFormat.parse("2017-09-21 06:30:00");
+        Date endTime3 = dateFormat.parse("2017-10-21 07:30:00");
+        item3.setDestination(destination3);
+        item3.setEndTime(endTime3);
+        item3.setStartTime(startTime3);
+        itinerary.addItineraryItem(item3);
+        
+        
         itinerary.setHome(home);
         
         Hisyam.setItinerary(itinerary);
