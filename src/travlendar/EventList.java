@@ -17,12 +17,12 @@ import javafx.util.Pair;
  *
  * @author syamcode
  */
-public class Itinerary {
+public class EventList {
     private Location home;
-    private List<ItineraryItem> itineraryItems= new ArrayList<ItineraryItem>();
+    private List<Event> events= new ArrayList<Event>();
     
-    public void addItineraryItem(ItineraryItem item) {
-        itineraryItems.add(item);
+    public void addEvent(Event item) {
+        events.add(item);
     }
     
     public Location getHome() {
@@ -37,13 +37,13 @@ public class Itinerary {
         SimpleDateFormat sdfd = new SimpleDateFormat("dd-MM-yyyy");
         SimpleDateFormat sdft = new SimpleDateFormat("hh:mm");
         String tempDate1 = "";
-        for(ItineraryItem item : itineraryItems) {
+        for(Event item : events) {
             if(!tempDate1.equals(sdfd.format(item.getStartTime()))) {
                 System.out.println("\nTanggal: " + sdfd.format(item.getStartTime()) + "\n");
                 tempDate1 = sdfd.format(item.getStartTime());
             }
             System.out.println("Item " + ++i + ": ");
-            System.out.println("Itinerary Name: " + item.getItineraryItemName());
+            System.out.println("Event Name: " + item.getEventName());
             System.out.println("Destination: " + item.getDestination().getLocationName());
             System.out.println("Start Time: " + sdft.format(item.getStartTime()));
             System.out.println("End Time: " + sdft.format(item.getEndTime()));
@@ -58,8 +58,8 @@ public class Itinerary {
     
     public void suggestTransportationModes(TravelingTime travelingTime) {
         int i = 0;
-        ItineraryItem item2 = new ItineraryItem("");
-        for(ItineraryItem item : itineraryItems) {
+        Event item2 = new Event("");
+        for(Event item : events) {
             if(i==0) {
                 item.setSuggestions(travelingTime.findTransportationMode(home, item.getDestination(), Long.MAX_VALUE, item.getStartTime()));
             }

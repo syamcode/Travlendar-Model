@@ -15,22 +15,22 @@ import javafx.util.Pair;
  *
  * @author syamcode
  */
-public class ItineraryItem {
-    private String itineraryItemName;
+public class Event {
+    private String eventName;
     private Date endTime = new Date();
     private Date startTime = new Date();
     private Location destination;
     private List<Suggestion> suggestions = new ArrayList<Suggestion>();
     
-    public ItineraryItem(String _itineraryItemName) {
-        itineraryItemName = _itineraryItemName;
+    public Event(String _eventName) {
+        eventName = _eventName;
     } 
-    public String getItineraryItemName() {
-        return itineraryItemName;
+    public String getEventName() {
+        return eventName;
     }
     
-    public void setItineraryItemName(String _itineraryItemName) {
-        itineraryItemName = _itineraryItemName;
+    public void setEventName(String _eventName) {
+        eventName = _eventName;
     }
     
     public Date getEndTime() {

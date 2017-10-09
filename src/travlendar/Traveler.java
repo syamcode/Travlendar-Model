@@ -11,7 +11,7 @@ package travlendar;
  */
 public class Traveler {
     private String travelerName;
-    private Itinerary travelerItinerary;
+    private EventList eventList;
     
     public Traveler(String _travelerName) {
         travelerName = _travelerName;
@@ -25,15 +25,15 @@ public class Traveler {
         travelerName = _travelerName;
     }
     
-    public Itinerary getItinerary() {
-        return travelerItinerary;
+    public EventList getEventList() {
+        return eventList;
     }
     
-    public void setItinerary(Itinerary _travelerItinerary) {
-        travelerItinerary = _travelerItinerary;
+    public void setEventList(EventList _eventList) {
+        eventList = _eventList;
     }
     
-    public void printTravelerItinerary() {
-        travelerItinerary.printAllItem();
+    public void printEventList() {
+        eventList.printAllItem();
     }
 }

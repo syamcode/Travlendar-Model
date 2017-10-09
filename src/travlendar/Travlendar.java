@@ -20,41 +20,41 @@ public class Travlendar {
      */
     public static void main(String[] args) throws ParseException {
         Traveler Hisyam = new Traveler("Hisyam");
-        Itinerary itinerary = new Itinerary();
+        EventList eventList = new EventList();
         Location home = new Location("Ciwaruga");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         
-        ItineraryItem item1 = new ItineraryItem("Olahraga Pagi");
+        Event item1 = new Event("Olahraga Pagi");
         Location destination1 = new Location("Polban");
         Date startTime1 = dateFormat.parse("2017-09-20 05:00:00");
         Date endTime1 = dateFormat.parse("2017-09-20 06:00:00");
         item1.setDestination(destination1);
         item1.setEndTime(endTime1);
         item1.setStartTime(startTime1);
-        itinerary.addItineraryItem(item1);
+        eventList.addEvent(item1);
         
-        ItineraryItem item2 = new ItineraryItem("Sarapan");
+        Event item2 = new Event("Sarapan");
         Location destination2 = new Location("Sarijadi");
         Date startTime2 = dateFormat.parse("2017-09-20 06:30:00");
         Date endTime2 = dateFormat.parse("2017-09-20 07:30:00");
         item2.setDestination(destination2);
         item2.setEndTime(endTime2);
         item2.setStartTime(startTime2);
-        itinerary.addItineraryItem(item2);
+        eventList.addEvent(item2);
         
-        ItineraryItem item3 = new ItineraryItem("Tidur");
+        Event item3 = new Event("Tidur");
         Location destination3 = new Location("Sarijadi");
         Date startTime3 = dateFormat.parse("2017-09-21 06:30:00");
         Date endTime3 = dateFormat.parse("2017-10-21 07:30:00");
         item3.setDestination(destination3);
         item3.setEndTime(endTime3);
         item3.setStartTime(startTime3);
-        itinerary.addItineraryItem(item3);
+        eventList.addEvent(item3);
         
         
-        itinerary.setHome(home);
+        eventList.setHome(home);
         
-        Hisyam.setItinerary(itinerary);
+        Hisyam.setEventList(eventList);
         
         TransportationMode motor = new TransportationMode("Motor");
         TransportationMode mobil = new TransportationMode("Mobil");
@@ -120,12 +120,12 @@ public class Travlendar {
         
         travelingTime.addTravelingTimes(travelingTimeItem7);
         
-        Hisyam.getItinerary().suggestTransportationModes(travelingTime);
+        Hisyam.getEventList().suggestTransportationModes(travelingTime);
         //travelingTime.printAllItem();
         // TODO code application logic here
         
         travelingTime.printAllItem();
-        Hisyam.printTravelerItinerary();
+        Hisyam.printEventList();
     }
     
 }
